@@ -53,3 +53,22 @@ body {
 .animate-bounce-slow {
   animation: bounce 1.8s ease-in-out infinite;
 }
+
+/* Hide scrollbar on horizontal scroll containers (webkit) */
+[data-hide-scrollbar]::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile: stack Product grid */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .product-image-col {
+    min-height: unset !important;
+    padding: 40px 8vw !important;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

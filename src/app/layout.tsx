@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
+import { Geist, Geist_Mono, Cormorant_Garamond, Space_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,9 +18,15 @@ const cormorant = Cormorant_Garamond({
   weight: ["300", "400", "500", "600"],
 });
 
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "Matcha — Every Pour, A Ritual",
-  description: "Handcrafted Ceremonial Matcha — Poured with intention",
+  title: "Sakura Matcha Bar — Bengaluru's First Matcha Bar",
+  description: "Ceremonial grade matcha sourced directly from Japan. Two locations in Bengaluru — Victoria Layout & JP Nagar. Handcrafted pottery mugs, Slow Sundays community, and every cup made with care.",
 };
 
 export default function RootLayout({
@@ -31,9 +37,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} ${spaceMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col" style={{ scrollBehavior: "smooth" }}>
+        {children}
+      </body>
     </html>
   );
 }
