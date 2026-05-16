@@ -47,7 +47,7 @@ export default function ScrollAnimation() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef    = useRef<HTMLCanvasElement>(null);
   const framesRef    = useRef<HTMLImageElement[]>([]);
-  const devLabelRef  = useRef<HTMLDivElement>(null);
+
 
   const logoRef      = useRef<HTMLDivElement>(null);
   const slotRefs     = useRef<(HTMLDivElement | null)[]>([null, null, null, null]);
@@ -155,10 +155,6 @@ export default function ScrollAnimation() {
       if (logoRef.current) {
         const p = displayProgressRef.current;
         logoRef.current.style.opacity = String(p < 0.6 ? 1 : Math.max(0, 1 - (p - 0.6) / 0.2));
-      }
-
-      if (process.env.NODE_ENV === "development" && devLabelRef.current) {
-        devLabelRef.current.textContent = `frame ${frameIdx + 1} / ${TOTAL_FRAMES}`;
       }
 
       if (settled) { isRunningRef.current = false; rafRef.current = null; return; }
@@ -391,15 +387,6 @@ export default function ScrollAnimation() {
           );
         })}
 
-        {process.env.NODE_ENV === "development" && (
-          <div ref={devLabelRef} style={{
-            position: "absolute", top: "16px", right: "16px",
-            fontFamily: "var(--font-geist-mono), monospace",
-            fontSize: "11px", color: "rgba(255,255,255,0.3)", pointerEvents: "none",
-          }}>
-            frame 0 / {TOTAL_FRAMES}
-          </div>
-        )}
       </div>
     </div>
   );

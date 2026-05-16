@@ -1,17 +1,23 @@
 import ScrollAnimation from "./components/ScrollAnimation";
-import Philosophy from "./components/Philosophy";
-import Process from "./components/Process";
-import Menu from "./components/Menu";
-import Footer from "./components/Footer";
+import DrinkShowcase from "./components/DrinkShowcase";
+import FullMenu from "./components/FullMenu";
+import Story from "./components/Story";
+import Closing from "./components/Closing";
 
 export default function Home() {
   return (
-    <main style={{ background: "#0a0a0a" }}>
+    <main
+      style={{
+        background: "#0a0a0a",
+        scrollSnapType: "y proximity",
+        scrollBehavior: "smooth",
+      }}
+    >
       <ScrollAnimation />
-      <Menu />
-      <Philosophy />
-      <Process />
-      <Footer />
+      <DrinkShowcase />
+      <FullMenu />
+      <Story />
+      <Closing />
     </main>
   );
 }
