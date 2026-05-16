@@ -225,8 +225,8 @@ export default function FullMenu() {
                 }}
                 whileHover={{
                   x: 8,
+                  transition: { duration: 0.4, ease: EASE },
                 }}
-                transition={{ duration: 0.4, ease: EASE }}
               >
                 <motion.div
                   style={{
